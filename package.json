@@ -2,9 +2,9 @@
   "name": "promernstack",
   "version": "1.0.0",
   "description": "Pro Mern Stack textbook",
-  "main": "index.js",
+  
   "scripts": {
-    "start": "nodemon -w server/server.js",
+    "start": "npx nodemon -w server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "babel src --out-dir public",
     "watch": "babel src --out-dir public --watch --verbose"
