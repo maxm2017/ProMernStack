@@ -1,0 +1,29 @@
+{
+  "name": "promernstack",
+  "version": "1.0.0",
+  "description": "Pro Mern Stack textbook",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "babel src --out-dir public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxm2017/ProMernStack.git"
+  },
+  "author": "Max Mercel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxm2017/ProMernStack/issues"
+  },
+  "homepage": "https://github.com/maxm2017/ProMernStack#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.7",
+    "@babel/preset-react": "^7.16.7"
+  }
+}
