@@ -27,3 +27,4 @@ class IssueAdd extends React.Component {
 }
 
 const element = /*#__PURE__*/React.createElement(IssueList, null);
+ReactDOM.render(element, document.getElementById('contents'));
