@@ -1,14 +1,29 @@
-class HelloWord extends React.Component {
+class IssueList extends React.Component {
   render() {
-    const continents = ['Africa', 'America', 'Asia', 'Australia', 'Europe'];
-    const helloContinents = Array.from(continents, c => `Hello ${c}`);
-    const message = helloContinents.join(' ');
-    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
-      title: "Outer div"
-    }, /*#__PURE__*/React.createElement("h1", null, message)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, " Second Div ")));
+    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Issue Tracker"), /*#__PURE__*/React.createElement(IssueFilter, null), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(IssueTable, null), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(IssueAdd, null));
   }
 
 }
 
-const element = /*#__PURE__*/React.createElement(HelloWord, null);
-ReactDOM.render(element, document.getElementById('contents'));
+class IssueFilter extends React.Component {
+  render() {
+    return /*#__PURE__*/React.createElement("div", null, " Placeholder for issue filter ");
+  }
+
+}
+
+class IssueTable extends React.Component {
+  render() {
+    return /*#__PURE__*/React.createElement("div", null, " Placeholder for issue table ");
+  }
+
+}
+
+class IssueAdd extends React.Component {
+  render() {
+    return /*#__PURE__*/React.createElement("div", null, " Placeholder for issue add ");
+  }
+
+}
+
+const element = /*#__PURE__*/React.createElement(IssueList, null);
