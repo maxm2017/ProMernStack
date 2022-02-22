@@ -17,40 +17,12 @@ const sampleIssue = {
 };
 
 class IssueList extends React.Component {
-    render()
-    {
-        return(
-            <React.Fragment>
-                <h1>Issue Tracker</h1>
-                <IssueFilter />
-                <hr />
-                <IssueTable />
-                <hr />
-                <IssueAdd />
-            </React.Fragment>
-        )
-    }
-}
-class IssueFilter extends React.Component{
-    render()
-    {
-        return (
-            <div> Placeholder for issue filter </div>
-        )
-    }
-}
 
-class IssueTable extends React.Component{
-    
-    constructor(){
+    constructor()
+    {
         super();
         this.state={issues:[]};
-        setTimeout(() => {
-             this.createIssue(sampleIssue);
-             //alert("Time out");
-            },1000);
     }
-
     componentDidMount()
     {
         this.loadData();
@@ -71,10 +43,35 @@ class IssueTable extends React.Component{
         newIssueList.push(issue);
         this.setState({issues:newIssueList})
     }
-
     render()
     {
-        const issueRows = this.state.issues.map(issue => <IssueRow key={issue.id} issue={issue} />);
+        return(
+            <React.Fragment>
+                <h1>Issue Tracker</h1>
+                <IssueFilter />
+                <hr />
+                <IssueTable issues={this.state.issues} />
+                <hr />
+                <IssueAdd createIssue={this.createIssue.bind(this)}  />
+            </React.Fragment>
+        )
+    }
+}
+class IssueFilter extends React.Component{
+    render()
+    {
+        return (
+            <div> Placeholder for issue filter </div>
+        )
+    }
+}
+
+class IssueTable extends React.Component{
+    
+    constructor(){
+    render()
+    {
+        const issueRows = this.props.issues.map(issue => <IssueRow key={issue.id} issue={issue} />);
         return (
             <table style={{borderCollapse: "collapse"}}>
                 <thead>
@@ -97,6 +94,13 @@ class IssueTable extends React.Component{
 }
 
 class IssueAdd extends React.Component{
+    constructor()
+    {
+        super();
+        setTimeout(()=>{
+            this.props.createIssue(sampleIssue);
+        },2000)
+    }
     render()
     {
         return (

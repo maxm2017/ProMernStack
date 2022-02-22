@@ -22,28 +22,11 @@ const sampleIssue = {
 };
 
 class IssueList extends React.Component {
-  render() {
-    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Issue Tracker"), /*#__PURE__*/React.createElement(IssueFilter, null), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(IssueTable, null), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(IssueAdd, null));
-  }
-
-}
-
-class IssueFilter extends React.Component {
-  render() {
-    return /*#__PURE__*/React.createElement("div", null, " Placeholder for issue filter ");
-  }
-
-}
-
-class IssueTable extends React.Component {
   constructor() {
     super();
     this.state = {
       issues: []
     };
-    setTimeout(() => {
-      this.createIssue(sampleIssue); //alert("Time out");
-    }, 1000);
   }
 
   componentDidMount() {
@@ -69,7 +52,32 @@ class IssueTable extends React.Component {
   }
 
   render() {
-    const issueRows = this.state.issues.map(issue => /*#__PURE__*/React.createElement(IssueRow, {
+    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Issue Tracker"), /*#__PURE__*/React.createElement(IssueFilter, null), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(IssueTable, {
+      issues: this.state.issues
+    }), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(IssueAdd, {
+      createIssue: this.createIssue.bind(this)
+    }));
+  }
+
+}
+
+class IssueFilter extends React.Component {
+  render() {
+    return /*#__PURE__*/React.createElement("div", null, " Placeholder for issue filter ");
+  }
+
+}
+
+class IssueTable extends React.Component {
+  constructor() {
+    super();
+    setTimeout(() => {
+      this.createIssue(sampleIssue); //alert("Time out");
+    }, 1000);
+  }
+
+  render() {
+    const issueRows = this.props.issues.map(issue => /*#__PURE__*/React.createElement(IssueRow, {
       key: issue.id,
       issue: issue
     }));
@@ -83,6 +91,13 @@ class IssueTable extends React.Component {
 }
 
 class IssueAdd extends React.Component {
+  constructor() {
+    super();
+    setTimeout(() => {
+      this.props.createIssue(sampleIssue);
+    }, 2000);
+  }
+
   render() {
     return /*#__PURE__*/React.createElement("div", null, " Placeholder for issue add ");
   }
