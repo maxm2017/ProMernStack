@@ -62,11 +62,10 @@ class IssueFilter extends React.Component{
     }
 }
 
-class IssueTable extends React.Component{
-    render()
-    {
-        const issueRows = this.props.issues.map(issue => <IssueRow key={issue.id} issue={issue} />);
-        return (
+function IssueTable(props)
+{
+    const issueRows = props.issues.map(issue => <IssueRow key={issue.id} issue={issue} />);
+    return (
             <table style={{borderCollapse: "collapse"}}>
                 <thead>
                     <tr>
@@ -84,8 +83,8 @@ class IssueTable extends React.Component{
                 </tbody>
             </table>
         )
-    }
 }
+
 
 class IssueAdd extends React.Component{
     constructor()
@@ -117,10 +116,9 @@ class IssueAdd extends React.Component{
     }
 }
 
-class IssueRow extends React.Component {
-    render()
-    {
-        const issue = this.props.issue;
+function IssueRow(props)
+{
+        const issue = props.issue;
         return(
             <tr>
                 <td>{issue.id}</td>
@@ -132,7 +130,7 @@ class IssueRow extends React.Component {
                 <td>{issue.title}</td>
             </tr>
         )
-    }
 }
+
 const element = <IssueList />
 ReactDOM.render(element, document.getElementById('contents'));
